@@ -1,6 +1,12 @@
 const express = require('express');
 const { google } = require('googleapis');
 
+var http2 = require("http");
+setInterval(function() {
+    http2.get(`Your app url`);
+    console.log("I'm Alive hehe")
+}, 300000)
+
 // Load credentials from the JSON key file you downloaded from the Google Cloud Console
 const credentials = require('./ced.json');
 
@@ -61,6 +67,9 @@ app.get('/', (req, res) => {
       res.status(500).json({ error: 'An error occurred' });
     });
 });
+
+const server = http.createServer(requestListener);
+server.listen(process.env.PORT || 8080);
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
