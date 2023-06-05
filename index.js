@@ -1,12 +1,18 @@
 const express = require('express');
 const { google } = require('googleapis');
-const http = require('http');
 
-var http2 = require("http");
+const http = require('http');
+const app = express();
+
+var requestListener = function (req, res) {
+  res.writeHead(200);
+  res.end('Hello, World!');
+};
+
 setInterval(function() {
-    http2.get(`Your app url`);
-    console.log("I'm Alive hehe")
-}, 300000)
+  http.get('Your app URL');
+  console.log("I'm Alive hehe");
+}, 300000);
 
 // Load credentials from the JSON key file you downloaded from the Google Cloud Console
 const credentials = require('./ced.json');
@@ -15,7 +21,7 @@ const credentials = require('./ced.json');
 const spreadsheetId = '1QP7OkhCF2ipA2sD2d0w3wSN_Le04mtuOwo5S7XrRQDA';
 
 // Set the range of the sheet you want to retrieve data from
-const range = 'hollywood';324205306
+const range = 'hollywood';
 
 async function getSheetData() {
   // Create a new instance of the Sheets API
@@ -56,8 +62,6 @@ async function getSheetData() {
   return jsonData;
 }
 
-const app = express();
-
 app.get('/', (req, res) => {
   getSheetData()
     .then(jsonData => {
@@ -69,10 +73,5 @@ app.get('/', (req, res) => {
     });
 });
 
-
-const server = http.createServer(requestListener);
+const server = http.createServer(app);
 server.listen(process.env.PORT || 8080);
-
-// app.listen(3000, () => {
-//   console.log('Server is running on port 3000');
-// });
