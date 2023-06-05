@@ -9,10 +9,8 @@ var requestListener = function (req, res) {
   res.end('Hello, World!');
 };
 
-setInterval(function() {
-  http.get('Your app URL');
-  console.log("I'm Alive hehe");
-}, 300000);
+
+
 
 // Load credentials from the JSON key file you downloaded from the Google Cloud Console
 const credentials = require('./ced.json');
@@ -72,6 +70,13 @@ app.get('/', (req, res) => {
       res.status(500).json({ error: 'An error occurred' });
     });
 });
+//Keep alive 
+var http2 = require('https');
 
-const server = http.createServer(app);
-server.listen(process.env.PORT || 8080);
+setInterval(function() {
+
+  http2.get('https://bollywood.herokuapp.com');
+
+  console.log("I'm Alive hehe");
+
+}, 300000);
