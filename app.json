@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "description": "Description of your application",
+  "repository": "https://github.com/NOOB-EXOTIC21/googlesheetapi/",
+  "env": {
+    "SPREADSHEET_ID": "1QP7OkhCF2ipA2sD2d0w3wSN_Le04mtuOwo5S7XrRQDA",
+    "RANGE": "index"
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ],
+  "scripts": {
+    "start": "node index.js"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  }
+}
