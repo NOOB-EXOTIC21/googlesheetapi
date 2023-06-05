@@ -21,7 +21,7 @@ const credentials = require('./ced.json');
 const spreadsheetId = '1QP7OkhCF2ipA2sD2d0w3wSN_Le04mtuOwo5S7XrRQDA';
 
 // Set the range of the sheet you want to retrieve data from
-const range = 'hollywood';
+const range = 'index';
 
 async function getSheetData() {
   // Create a new instance of the Sheets API
