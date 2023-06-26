@@ -75,7 +75,7 @@ var http2 = require('https');
 
 setInterval(function() {
 
-  http2.get('https://modapps-f981efee22cc.herokuapp.com');
+  http2.get('https://mod-apps-92c3df7268dd.herokuapp.com');
 
   console.log("I'm Alive hehe");
 
