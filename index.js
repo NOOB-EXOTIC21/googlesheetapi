@@ -19,7 +19,7 @@ const credentials = require('./ced.json');
 const spreadsheetId = '1MQncWCVFdvdDV0cFwqTnkYMbXN0403n6APv923PBhDo';
 
 // Set the range of the sheet you want to retrieve data from
-const range = 'index';
+const range = 'mods';
 
 async function getSheetData() {
   // Create a new instance of the Sheets API
@@ -75,7 +75,7 @@ var http2 = require('https');
 
 setInterval(function() {
 
-  http2.get('https://bollywood.herokuapp.com');
+  http2.get('https://modsapps.herokuapp.com');
 
   console.log("I'm Alive hehe");
 
